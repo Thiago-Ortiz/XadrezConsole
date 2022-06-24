@@ -31,6 +31,9 @@ namespace xadrez
         {
             Tab.colocarPeca(new Torre(Tab, Cor.Preta),
                 new PosicaoXadrez('c', 1).toPosicao());
+
+            Tab.colocarPeca(new Rei(Tab, Cor.Preta),
+                new PosicaoXadrez('d', 1).toPosicao());
         }
 
     }
