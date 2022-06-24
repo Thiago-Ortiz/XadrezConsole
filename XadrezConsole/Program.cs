@@ -2,10 +2,28 @@
 using xadrez;
 using XadrezConsole;
 
-Tabuleiro tab = new Tabuleiro(8,8);
+try
+{
+    PartidaDeXadrez partida = new PartidaDeXadrez();
 
-tab.colocarPeca(new Torre(tab, Cor.Preta), new Posicao(0, 0));
-tab.colocarPeca(new Torre(tab, Cor.Preta), new Posicao(1, 3));
-tab.colocarPeca(new Rei(tab, Cor.Branca), new Posicao(2, 4));
+    while (!partida.Terminada)
+    {
+        Console.Clear();
+        Tela.imprimirTabuleiro(partida.Tab);
+        Console.WriteLine();
 
-Tela.imprimirTabuleiro(tab);
+        Console.Write("Origem:  ");
+        Posicao origem = Tela.lerPosicaoXadrez().toPosicao();
+
+        Console.Write("Destino: ");
+        Posicao destino = Tela.lerPosicaoXadrez().toPosicao();
+
+        partida.executaMovimento(origem, destino);
+    }
+
+    Tela.imprimirTabuleiro(partida.Tab);
+}
+catch (TabuleiroException e)
+{
+    Console.WriteLine(e.Message);
+}
