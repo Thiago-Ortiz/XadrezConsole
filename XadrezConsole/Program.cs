@@ -11,10 +11,9 @@ try
         try
         {
             Console.Clear();
-            Tela.imprimirTabuleiro(partida.Tab);
-            Console.WriteLine();
-            Console.WriteLine("Turno: " + partida.Turno);
-            Console.WriteLine("Aguardando jogada: " + partida.JogadorAtual);
+            Tela.imprimirPartida(partida);
+
+           
 
 
             Console.WriteLine();
@@ -40,10 +39,8 @@ try
             Console.WriteLine(e.Message);
             Console.ReadLine();
         }
-        
-    }
 
-    Tela.imprimirTabuleiro(partida.Tab);
+    }
 }
 catch (TabuleiroException e)
 {
